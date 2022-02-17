@@ -1,14 +1,11 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
 }
 
-@model List<Project>
+@model ProjectsViewModel
 
 <h1>The Water Project</h1>
 
-@foreach (Project p in Model)
+@foreach (Project p in Model.Projects)
 {
     <h3>@p.ProjectName</h3>
 
@@ -22,3 +19,5 @@
 
     <br />
 }
+
+<div page-blah="@Model.PageInfo" page-action="Index"></div>
