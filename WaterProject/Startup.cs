@@ -26,7 +26,7 @@ namespace WaterProject
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
             services.AddDbContext<WaterProjectContext>(options =>
             {
@@ -51,6 +51,12 @@ namespace WaterProject
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "Paging",
+                    pattern: "Page{pageNum}",
+                    defaults: new { Controller = "Home", action = "Index" }
+                    );
+                    
                 endpoints.MapDefaultControllerRoute();
             });
         }
