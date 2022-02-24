@@ -10,6 +10,7 @@
     <None Remove="Controllers\" />
     <None Remove="Views\Home\" />
     <None Remove="Views\Shared\" />
+    <None Remove="Components\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -18,6 +19,7 @@
     <Folder Include="wwwroot\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Views\Shared\" />
+    <Folder Include="Components\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
