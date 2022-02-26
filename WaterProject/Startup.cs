@@ -55,7 +55,9 @@ namespace WaterProject
                     "{projectType}/Page{pageNum}",
                     new {Controller = "Home", action = "Index"});
 
-                endpoints.MapControllerRoute("Paging", "Page{pageNum}", new { Controller = "Home", action = "Index", pageNum=1 });
+                endpoints.MapControllerRoute("Paging",
+                    "Page{pageNum}",
+                    new { Controller = "Home", action = "Index", pageNum=1 });
 
                 endpoints.MapControllerRoute("type",
                     "{projectType}",
