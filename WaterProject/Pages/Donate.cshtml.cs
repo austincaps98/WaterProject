@@ -19,8 +19,9 @@ namespace WaterProject.Pages
 
         public Basket basket { get; set; }
 
-        public void OnGet()
+        public void OnGet(Basket b)
         {
+            basket = b;
         }
 
         public IActionResult OnPost(int projectId)
@@ -30,7 +31,7 @@ namespace WaterProject.Pages
             basket = new Basket();
             basket.AddItem(p, 1);
 
-            return RedirectToPage();
+            return RedirectToPage(basket);
         }
     }
 }
