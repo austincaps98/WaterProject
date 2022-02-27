@@ -27,7 +27,15 @@ namespace WaterProject.Models
                 line.Quantity += qty;
             }
         }
+
+        public double CalculateTotal()
+        {
+            double sum = Items.Sum(x => x.Quantity * 25);
+
+            return sum;
+        }
     }
+
 
     public class BasketLineItem
     {
