@@ -19,13 +19,15 @@ namespace WaterProject.Pages
         }
 
         public Basket basket { get; set; }
+        public string ReturnUrl { get; set; }
 
-        public void OnGet()
+        public void OnGet(string returnUrl)
         {
+            ReturnUrl = returnUrl ?? "/";
             basket = HttpContext.Session.GetJson<Basket>("basket") ?? new Basket();
         }
 
-        public IActionResult OnPost(int projectId)
+        public IActionResult OnPost(int projectId, string returnUrl)
         {
             Project p = repo.Projects.FirstOrDefault(x => x.ProjectId == projectId);
 
@@ -34,7 +36,7 @@ namespace WaterProject.Pages
 
             HttpContext.Session.SetJson("basket", basket);
 
-            return RedirectToPage();
+            return RedirectToPage(new { ReturnUrl = returnUrl });
         }
     }
 }

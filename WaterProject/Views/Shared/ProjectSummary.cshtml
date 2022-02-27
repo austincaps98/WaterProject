@@ -23,6 +23,8 @@
 
         <input type="hidden" asp-for="@Model.ProjectId" />
 
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
         <span class="card-text">
             <button type="submit" class="btn btn-success btn-sm float-end">Donate</button>
         </span>

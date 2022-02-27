@@ -20,7 +20,7 @@
         @foreach(var i in Model.basket.Items)
             {
                 <tr>
-                    <td>@i.Project.ProjectId</td>
+                    <td>@i.Project.ProjectName</td>
                     <td>@i.Quantity</td>
                     <td>25</td>
                     <td>@(i.Quantity * 25)</td>
@@ -36,3 +36,7 @@
     </tfoot>
 
 </table>
+
+<div>
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Donating</a>
+</div>
