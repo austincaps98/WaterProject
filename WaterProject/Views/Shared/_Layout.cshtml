@@ -9,13 +9,15 @@
 <body>
 
     <div class="bg-dark text-white p-2">
-        <span class="navbar-brand ml-lg-2">WATER PROJECT</span>
+        <span class="navbar-brand ml-lg-2">
+            <a class="text-light" asp-controller="Home" asp-action="Index">WATER PROJECT</a>
+        </span>
     </div>
 
     <div class="row m-1 p-1">
 
-        <div id="types class=col-3">
-            Put something useful in here later
+        <div id="types" class="col-3">
+            <vc:types></vc:types>
         </div>
 
         <div class="col-9">

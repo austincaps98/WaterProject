@@ -34,6 +34,12 @@ namespace WaterProject
             });
 
             services.AddScoped<IWaterProjectRepository, EFWaterProjectRepository>();
+
+            services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,17 +53,28 @@ namespace WaterProject
             // Corresponds to the wwwroot folder
             app.UseStaticFiles();
 
+            app.UseSession();
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "Paging",
-                    pattern: "Page{pageNum}",
-                    defaults: new { Controller = "Home", action = "Index" }
-                    );
+                endpoints.MapControllerRoute("typepage",
+                    "{projectType}/Page{pageNum}",
+                    new {Controller = "Home", action = "Index"});
+
+                endpoints.MapControllerRoute("Paging",
+                    "Page{pageNum}",
+                    new { Controller = "Home", action = "Index", pageNum=1 });
+
+                endpoints.MapControllerRoute("type",
+                    "{projectType}",
+                    new { Controller = "Home", action = "Index", pageNum = 1 });
+
                     
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
         }
     }
