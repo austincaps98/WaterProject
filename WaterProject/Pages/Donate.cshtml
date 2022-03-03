@@ -22,8 +22,8 @@
                 <tr>
                     <td>@i.Project.ProjectName</td>
                     <td>@i.Quantity</td>
-                    <td>25</td>
-                    <td>@(i.Quantity * 25)</td>
+                    <td>$25.00</td>
+                    <td>@((i.Quantity * 25).ToString("C2"))</td>
                 </tr>
             }
     </tbody>
@@ -31,7 +31,7 @@
     <tfoot>
         <tr>
             <td colspan="3">Total:</td>
-            <td>@Model.basket.CalculateTotal().ToString("c")</td>
+            <td>@Model.basket.CalculateTotal().ToString("C2")</td>
         </tr>
     </tfoot>
 
