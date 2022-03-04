@@ -23,8 +23,8 @@ namespace WaterProject.Models
             {
                 context.Donations.Add(donation);
 
-                context.SaveChanges();
             }
+                context.SaveChanges();
         }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Linq;
+
 namespace WaterProject.Models
 {
-    public class IDonationRepository
+    public interface IDonationRepository
     {
-        public IDonationRepository()
-        {
-        }
+        IQueryable<Donation> Donations { get; }
+
+        void SaveDonation(Donation donation);
     }
 }

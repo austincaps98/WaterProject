@@ -29,7 +29,23 @@ namespace WaterProject.Controllers
         [HttpPost]
         public IActionResult Checkout(Donation donation)
         {
+            if (basket.Items.Count() == 0)
+            {
+                ModelState.AddModelError("", "Sorry, your basket is empty");
+            }
 
+            if (ModelState.IsValid)
+            {
+                donation.Lines = basket.Items.ToArray();
+                repo.SaveDonation(donation);
+                basket.ClearBasket();
+
+                return RedirectToPage("/DonationCompleted");
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }
